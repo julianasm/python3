@@ -1,0 +1,25 @@
+#operadores unarios
+a = 3
+a += 1
+print(a)
+-a
+print(-a)
+print(a)
+not 0  #qualquer numero que não seja 0 é verdadeiro
+not 1  #qualquer numero que não seja maior que 0 é falso
+print(not 0)
+print(not False)
+print(not True)
+print(not not True)
+print(not not False)
+
+#operadores ternarios
+
+esta_chovendo = True
+print('hoje estou com as roupas ' + ('secas.', 'molhadas.')[esta_chovendo])
+#a opção mais proxima da opção verdadeira, no caso
+#molhadas, sera mostrada
+
+print('hoje estou com as roupas ' +
+      ('molhadas.' if esta_chovendo else 'secas.'))
+#hoje estou com as roupas molhadas se esta chovendo, caso contrario, secas
