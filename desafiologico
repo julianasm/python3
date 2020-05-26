@@ -1,0 +1,16 @@
+#desafio operadores logicos
+#os trabalhos
+
+trabalho_terca = False
+trabalho_quinta = False
+tv_32 = trabalho_terca != trabalho_quinta #XOR se um e somente um trabalho for realizado
+tv_50 = trabalho_terca and trabalho_quinta
+sorvete = trabalho_terca or trabalho_quinta
+saude = not sorvete #negação logica de tomar sorvete
+
+print("tv_50={}, tv_32={}, sorvete={}, saude={} "
+  .format(tv_50,tv_32,sorvete, saude))
+#entre parenteses passou todos os valores que devem ser substituidos dentro da string
+# interpolação dos valores passados para a função .format para os locais enumerados pelo indice entre colchetes
+print("{2}, {0} = {1}" .format(1, False,"resultado")) #troca a ordem indexando
+
