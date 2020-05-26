@@ -1,0 +1,24 @@
+#Numeros #01
+#tipos numericos
+#print(dir(int))
+#print(dir(float))
+
+a = 5
+b = 2.5
+print(a / b)
+print(a + b)
+print(a * b)
+
+print(type(a))
+print(type(b))
+print(type(a - b))
+
+print(b.is_integer())
+print(5.0.is_integer())  #é um valor inteiro, mas não do tipo 'int'
+print(int.__add__(2, 3))  #faz soma 2 + 3
+print(2 + 3)
+print((-2).__abs__())  #retorna o valor em modulo
+print(abs(-2))  #tambem retorna o valor em modulo
+print(type(-2))
+print(type(abs(-3.6)))
+print(dir(float))
