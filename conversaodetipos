@@ -12,3 +12,12 @@ print(type(str(a)))
 print(
     2 +
     float('2.4'))  #dentro da string precisa ter algo que possa ser convertido
+
+#coerção automatica
+print(10 / 2)  #o resultado de uma divisão é sempre float
+print(type(10 / 2))
+print(10 // 3)
+print(type(10 // 3))  #devolve valor inteiro
+print(type(10 / 3.3))  #devolve valor float
+print(2 + True)  #2 + 1
+print(2 + False)  #2 + 0
