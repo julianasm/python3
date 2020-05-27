@@ -1,0 +1,24 @@
+#conjuntos - tambem delimitados por chaves{}
+#garda apenas valores, não é indexado, nao obedece a ordem de inserção(append), nao aceita repetição de valores
+
+a = {1, 2, 3}
+print(type(a))
+a = set('codd3r')
+print(a) #forma um conjunto com cada uma das letras, nao tem ordem
+print('3' in a, 4 not in a)
+print({1, 2, 3} == {3, 2, 1, 3}) #verdadeiro pois possui os mesmos elementos, elementos duplicados serao removidos
+
+#operacoes
+c1 = {1, 2}
+c2 = {2, 3}
+print(c1.union(c2))
+print(c1.intersection(c2))
+c1.update(c2) #atualiza o conjunto 1 a partir dos elementos do conjunto 2
+print(c1)
+print(c2 <= c1) #c2 é subconjunto de c1?
+print(c1 >= c2)
+{1, 2, 3} - {2} #diferença entre os conjuntos
+print({1, 2, 3} - {2, 3})
+print(c1 - c2)
+c1 -= {2} #subtrai o 2 contido em c 1, e atribui o novo conjunto a c1
+print(c1)
