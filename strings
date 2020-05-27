@@ -1,0 +1,32 @@
+#tipo strings
+#print(dir(str))
+nome = 'pedro henrique'
+print(nome)
+print(nome[0])
+#string não suporta uma atribuição, não é possivel trocar a letra
+#de um nome
+texto = 'texto entre aspas simples pode ter "aspas"'
+print(texto)
+
+doc = """ texto com multiplas
+  ...linhas"""
+print(doc)
+doc = 'texto com multiplas\n\t...linhas'
+print(doc)
+
+doc = '''tambem é possivel 
+com tres aspas simples'''
+print(doc)
+
+nome2 = 'antonio carlos'
+print(nome2)
+print(nome2[4])  #indice 4 pra frente
+print(nome2[0:3])  #vai ate o 7 mas o 7 não é considerado
+
+numeros = '1234567890'
+print(numeros)
+print(numeros[::])  #acessa todos os valores da string
+print(numeros[::2])  #acessa de dois em dois
+print(numeros[1::2])  #comecando do indice 1 indo ate o fim de 2 em dois
+print(numeros[::-1])  #inverte a string printando do final
+print(nome2[::-1])  #inventendo a strinf printando pelo final
