@@ -1,0 +1,10 @@
+#interpolação - substituir valores dentro de uma string
+#01 jeito
+from string import Template
+nome, idade = 'ana', 30
+print('Nome: %s Idade %.2d %r' % (nome, idade, True)) #mais antiga
+print('Nome: {0} Idade: {1}'.format(nome, idade)) #substitui os dois valores pelos pares de {} python < 3.6
+print(f'Nome:{nome} Idade:{idade}') #coloca a variavel nas chaves #python >= 3.6
+
+s = Template('Nome: $n Idade: $idade')
+print(s.substitute(n=nome, idade=idade))
