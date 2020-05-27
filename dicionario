@@ -1,0 +1,31 @@
+#dicionarios 01 - estrutura chave/valor
+#normalmente indexada por uma string
+pessoa = {'nome': 'prof(a). Ana', 'idade': 38, 'cursos': ['ingles', 'Portugues']} #lista dentro do dicionario
+print(type(pessoa))
+print(len(pessoa)) #quantidade de itens chave:valor
+print(pessoa)
+#indexação por string é o mais comum
+print(pessoa['nome'])
+print(pessoa['idade'])
+print(pessoa['cursos'])
+print(pessoa['cursos'][1]) #é possivel acessar itens da lista 'curso'
+print(pessoa.keys()) #mostra as chaves do dicionario: nome, idade e cursos
+print(pessoa.values()) #mostra os valores guardados nas chaves
+print(pessoa.items()) #mostra todos os itens do dict, chaves e valores
+print(pessoa.get('idade')) #devolve o valor contido na chave idade
+#dicionario nao e um objeto
+
+#dicionarios 02 
+
+pessoa = {'nome':'prof. alberto','idade': 43, 'cursos':['react','python' ]}
+pessoa['idade'] = 44 #muda o valor no indice 'idade'
+pessoa['cursos'].append('angular') #adiciona valores a lista 'cursos'
+print(pessoa)
+print(pessoa.pop('idade')) #tanto lê quanto tira a chave de dentro do dicionario
+print(pessoa)
+pessoa.update({'idade':40, 'sexo': 'M'})
+print(pessoa) #indices fora de ordem, pois n ha necessidade
+del pessoa['cursos']
+print(pessoa)
+pessoa.clear() #limpa todos os itens de um dicionario
+print(pessoa)
