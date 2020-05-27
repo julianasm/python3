@@ -1,0 +1,18 @@
+#tuplas - sequencia imutavel
+#tuplas nao podem ser modificadas, nao é possivel adicionar novos elementos, não é possivel excluir novos elementos
+tupla = tuple()
+tupla = ()
+print(type(tupla))
+tupla = ('um', )  #se nao tiver a virgula sera interpretado como string
+print(type(tupla))
+print(tupla[0])
+#tupla[0] = 'novo' TypeError: 'tuple' object does not support item assignment
+print(tupla)
+cores = ('verde', 'amarelo', 'azul', 'branco')
+print(cores[0])
+print(cores[-1])
+print(cores[1:])
+
+print(cores.index('amarelo'))
+print(cores.count('azul'))  #quantos elementos do tipo 'azul' ha no tuple
+print(len(cores))
