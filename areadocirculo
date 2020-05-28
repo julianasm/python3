@@ -43,3 +43,42 @@ if __name__ == '__main__':
 #é necessario converter para float ou int porque raio inicialmente é uma string
 
 import __main__
+
+#criando uma função sem retorno
+
+from math import pi
+
+
+def circulo(raio):  #definição da função
+    print('area do circulo é igual a: ', pi * float(raio)**2)
+
+
+#vai receber como parametro o raio do circulo
+#entre parenteses são colocados os parametros da função
+
+if __name__ == '__main__':
+    raio = input('Informe o raio: ')
+    circulo(raio)
+
+from __main__ import (circulo)
+print(circulo(2))
+#é possivel importar a função e utiliza-la
+
+#criando uma função com retorno
+
+from math import pi
+
+
+def circulo(raio):  #definição da função
+    return (pi * float(raio)**2)
+
+
+#vai receber como parametro o raio do circulo
+#entre parenteses são colocados os parametros da função
+
+if __name__ == '__main__':
+    raio = input('Informe o raio: ')
+    area_do_circulo = circulo(raio)
+    print('area do circulo é igual a:', area_do_circulo)
+
+#é possivel importar a função e utiliza-la
