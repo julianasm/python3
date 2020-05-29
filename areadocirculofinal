@@ -1,0 +1,40 @@
+#criando uma função com retorno
+from math import pi
+import sys
+import errno
+
+class TerminalColor:
+    ERRO = '\033[91m'
+    NORMAL = '\033[0m'
+
+
+def circulo(raio):  #definição da função
+    return (pi * float(raio)**2)
+
+
+def help(script): #passando o parametro para a funcao
+    print("É necessário informar o raio do circulo.")
+    print("Sintaxe: {} <raio>".format(script))
+
+#vai receber como parametro o raio do circulo
+#entre parenteses são colocados os parametros da função
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        help(sys.argv[0])
+        sys.exit(errno.EPERM)
+    
+    if not sys.argv[1].isnumeric():
+      help(sys.argv[1])
+      print(TerminalColor.ERRO,
+            'o raio deve ser um valor numerico',     TerminalColor.NORMAL)
+      sys.exit(errno.EINVAL)
+    
+    raio = sys.argv[1]
+    area_do_circulo = circulo(raio)
+    print('area do circulo é igual a:', area_do_circulo)
+
+#é possivel importar a função e utiliza-la
+#sys é a biblioteca do sistema
+#argv é o vetor de argumentos
+#serve para criar uma string que contem campos entre chaves a serem substituídos pelos argumentos de format
