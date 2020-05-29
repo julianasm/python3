@@ -1,0 +1,27 @@
+def nota_final(nota):
+    if (nota >= 9 and nota < 10): 
+        return 'A'
+    elif (nota >= 8.1 and nota <= 9):
+        return '-A'
+    elif (nota >= 7.1 and nota <= 8):
+        return '-B'
+    elif (nota >= 6.1 and nota <= 7):
+        return 'C'
+    elif (nota >= 5.1 and nota <= 6):
+        return '-C'
+    elif (nota >= 4.1 and nota <= 5):
+        return 'D'
+    elif (nota >= 3.1 and nota <= 4):
+        return '-D'
+    elif (nota >= 2.1 and nota <= 3):
+        return 'E'
+    elif (nota >= 1.1 and nota <= 2):
+        return '-E'
+    elif (nota >= 0 and nota <= 1):
+        return 'F'
+    elif (nota > 10 or nota <= 0):
+        print('Nota inválida')
+
+
+x = float(input('informe a nota do aluno:'))
+print('O conceito final é: ', nota_final(x))
