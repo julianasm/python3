@@ -9,3 +9,23 @@ for x in range(1, 11):
         print (f'{x} * {y} = {x * y}' )
          #interpola x e y
          #dentro das chaves é que realmente vai acontecer a multiplicação
+
+palavra = ('paralelepipedo')
+for letra in palavra:
+    print(letra, end=",")
+print('fim')
+
+aprovados = ['Rafaela', 'Pedro', 'Renato', 'Maria']
+for nome in aprovados:
+    print(nome)
+
+for posicao, nome in enumerate(aprovados):
+    print(f'{posicao + 1})', nome)
+
+dias_semana = ('Domingo', 'Segunda', 'Terca', 
+               'Quarta', 'Quinta', 'Sexta', 'Sábado')
+for dia in dias_semana:
+    print(f'Hoje é {dia}')                
+
+for letra in set("Muito legal"):
+    print(letra)
