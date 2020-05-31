@@ -1,0 +1,19 @@
+#simulador de switch
+
+def get_dia_semana(dia):
+  dias = {
+    1: 'domingo',
+    2: 'segunda',
+    3: 'terça',
+    4: 'quarta',
+    5: 'quinta',
+    6: 'sexta',
+    7: 'sábado'
+  }
+  return dias.get(dia, '** dia inválido')
+#The get() method returns the value of the item with the specified key.
+
+for dia in range(0,9):
+    print(f'{dia}:{get_dia_semana(dia)}')
+    
+ 
