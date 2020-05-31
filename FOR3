@@ -1,0 +1,34 @@
+produto = {'nome' : 'Caneta Chic', 'preco': 14.99, 
+           'importada': True, 'estoque': 793}
+for chave in produto.keys():
+    print(chave)
+
+for valor in produto.values():
+    print(valor)
+
+for chave, valor in produto.items():
+    print(chave, '=', valor)
+
+print(chave, valor) #variaveis disponiveis após o fim do laço
+
+#break/continue
+
+for x in range(1, 11):
+    if x % 2 == 0: #vai imprimir todos os valores impares
+        continue
+    print(x)
+
+for x in range (1, 11):
+    if x == 5:
+      break
+    print(x)
+
+print('fim!')
+
+for i in range(1, 11):
+    if i == 6:
+        break
+    print(i)
+else:
+    print('fim!')
+
