@@ -1,0 +1,16 @@
+PALAVRAS_PROIBIDAS = {'futebol', 'religião', 'política'}
+#Criação de "constantes" em letras maiusculas
+textos = [
+    'João gosta de futebol e política', 
+    'A praia foi divertida',   
+]
+
+for texto in textos:
+    intersecao = PALAVRAS_PROIBIDAS.intersection(set(texto.lower().split()))
+    #forma set a partir de cada uma das palavras que forma a string 'texto'
+    if intersecao:
+      print('Texto possui palavras proibidas: ', intersecao)
+else:
+    print('Texto autorizado: ', texto)
+#variavel "intersecao" recebe a intersecao =  .intersection()
+# entre palavras_proibidas e o set "texto"; para transformar "texto" de string para set foi utilizada a funcao "set()"
