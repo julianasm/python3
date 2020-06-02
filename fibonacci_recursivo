@@ -1,0 +1,16 @@
+#fibonacci_recursivo
+
+def fibonacci(quantidade, sequencia=(0,1)):
+    #impotante: condição de parada!
+    if len(sequencia) == quantidade:
+        return sequencia
+    return fibonacci(quantidade, sequencia + (sum(sequencia[-2:]),))
+
+#precisa da virgula no final pra dizer que é uma tupla
+#quando vc soma duas tuplas, vc esta concatenando
+#tupla de um unico elemento, que é a soma dos dois ultimos valores
+
+if __name__ == '__main__':
+    #listar os 20 primeiros numeros da sequencia
+    for fib in fibonacci(20):
+        print(fib, end=',')
