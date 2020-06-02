@@ -1,0 +1,21 @@
+#fibonacci
+
+#estruturas_controle_projetos
+
+
+def fibonacci(quantidade):
+    resultado = [0, 1] 
+    #trocando variaveis por listas, cada resultado sera add à lista através da função append().
+    while True:
+        resultado.append(sum(resultado[-2:]))
+        #soma os dois ultimos valores da lista
+        if len(resultado) == quantidade:
+            break
+          #se o tamanho da lista for igual a quantidade passada como parametro
+    return resultado
+
+if __name__ == '__main__':
+    for fib in fibonacci(20):
+        print(fib, end=',')
+#para funcionar, é necessário passar como parâmetro o valor quantidade
+#função retorna a lista resultados e sera impresso os 20 primeiros valores da sequencia
