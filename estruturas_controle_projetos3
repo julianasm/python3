@@ -1,0 +1,14 @@
+#fibonacci
+
+def fibonacci(limite):
+    penultimo = 0
+    ultimo = 1
+    print(f'{penultimo},{ultimo}', end=',')
+    while ultimo < limite:
+        penultimo, ultimo = ultimo, penultimo + ultimo
+        print(ultimo, end=',')
+#troca de variaveis pela tupla, sem necessidade de criar uma variavel extra
+
+if __name__ == '__main__':
+    fibonacci(10000)
+#para funcionar, é necessário passar como parâmetro o valor limite
