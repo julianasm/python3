@@ -1,0 +1,16 @@
+#fibonacci
+
+def fibonacci(limite):
+    resultado = [0, 1] 
+    #trocando variaveis por listas, cada resultado sera add à lista através da função append().
+    while resultado[-1] < limite:
+    #enquanto o ultimo valor da lista for menor que o limite
+        resultado.append(resultado[-2] + resultado[-1])
+        #soma do penultimo valor de resultado e o ultimo e adiciona a lista
+    return resultado
+
+if __name__ == '__main__':
+    for fib in fibonacci(10000):
+        print(fib, end=',')
+#para funcionar, é necessário passar como parâmetro o valor limite
+#função retorna a lista resultados e sera impresso cada item dessa lista sera impresso um valor
