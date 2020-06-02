@@ -6,3 +6,4 @@ terceiro_valor = input('Insira um valor: ')
 
 valores = [int(primeiro_valor), int(segundo_valor), int(terceiro_valor)]
 print('O maior valor é: ', max(valores))
+print('O menor valor é: ', min(valores))
