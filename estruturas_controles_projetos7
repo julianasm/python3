@@ -1,0 +1,15 @@
+#fibonacci
+
+def fibonacci(quantidade):
+    resultado = [0, 1] 
+    #trocando variaveis por listas, cada resultado sera add à lista através da função append().
+    for i in range(2, quantidade):
+        resultado.append(sum(resultado[-2:]))
+        #soma os dois ultimos valores da lista
+    return resultado
+
+if __name__ == '__main__':
+    for fib in fibonacci(20):
+        print(fib, end=',')
+#para funcionar, é necessário passar como parâmetro o valor quantidade
+#função retorna a lista resultados e sera impresso os 20 primeiros valores da sequencia
