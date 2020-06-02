@@ -1,0 +1,12 @@
+#média_dos_alunos
+
+import statistics
+
+print('Média dos alunos')
+primeira_nota = input('Escreva primeira nota: ')
+segunda_nota = input('Escreva a segunda nota: ')
+
+notas = [int(primeira_nota), int(segunda_nota)]
+media = statistics.mean(notas)
+
+print('A média final é: ', media)
