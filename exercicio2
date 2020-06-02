@@ -1,0 +1,8 @@
+#ler tres valores e apresentar o maior
+
+primeiro_valor = input('Insira um valor: ')
+segundo_valor = input('Insira um valor: ')
+terceiro_valor = input('Insira um valor: ')
+
+valores = [int(primeiro_valor), int(segundo_valor), int(terceiro_valor)]
+print('O maior valor é: ', max(valores))
