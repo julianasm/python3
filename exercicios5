@@ -1,0 +1,15 @@
+#perguntar o turno e escrever a saudação correspondente
+
+def turno(saudacao):
+    if saudacao == 'M':
+        return 'Bom dia!'
+    elif saudacao == 'V':
+        return 'Boa tarde!'
+    elif saudacao == 'N':
+        return 'Boa noite!'
+    else:
+        return 'Turno invalido!'  
+
+horario = input('Em que turno você estuda? M = Matutino, V = Vespertino, N = Noturno:')
+
+print(turno(horario))
