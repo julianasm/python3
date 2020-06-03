@@ -1,0 +1,7 @@
+numero_1 = input('Insira o primeiro numero: ')
+numero_2 = input('Insira o segundo numero: ')
+numero_3 = input('Insira o terceiro numero: ')
+
+numeros = [int(numero_1), int(numero_2), int(numero_3)]
+numeros.sort(key=int, reverse=True)
+print(numeros)
