@@ -1,0 +1,30 @@
+#achar o produto mais barato
+
+nome_do_produto = [0, 1, 2]
+valor_do_produto = [0, 1, 2]
+
+for i in [0, 1, 2]:
+   nome_do_produto[i] = input('Insira o nome do produto: ')
+   valor_do_produto[i] = float(input('Valor do produto: '))
+
+print(min(valor_do_produto))
+(valor_do_produto.index(min(valor_do_produto)))
+print(nome_do_produto[(valor_do_produto.index(min(valor_do_produto)))]
+
+#achar o produto mais barato
+
+import math
+nome = []
+preço = []
+for i in range(3):
+  nome.insert(input("Nome do produto"))
+    preco.insert(float(input("Valor do produto")))
+
+menor_val = math.inf
+indice = 0
+for i in range(3):
+  if (menor_val < preco[i]):
+    indice = i
+    menor_val = preco[i]
+
+print("o menor produto é {} e seu preço é {}".format(nome[indice]), valor[indice])
