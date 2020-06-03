@@ -1,0 +1,24 @@
+#programa calcula aumento do salario
+
+def aumento(salario):
+    if (salario == 280):
+        return ((salario * 0.2 + salario), '20%')
+    if  (salario > 280) or (salario <= 700):
+        return ((salario * 0.15 + salario), '15%')
+    if (salario > 700) or (salario >= 1500):
+        return ((salario * 0.10 + salario), '10%')
+    if salario > 1500:
+        return ((salario * 0.05 + salario), '5%')
+
+
+salario_atual = float(input('Qual o salário atual?: '))
+
+aumento(salario_atual)
+
+novo_salario, percentual = aumento(salario_atual)
+valor_aumento = (novo_salario - salario_atual)
+
+print('O salário era: ', salario_atual)
+print('O salário foi para: ', novo_salario)
+print('O aumento foi de: ', valor_aumento, ' reais.' )
+print('O percentual do aumento foi de: ', percentual)
