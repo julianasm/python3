@@ -1,0 +1,27 @@
+#calcula imposto de renda, inss, fgts, o total de descontos e o salario liquido
+
+def descontos(salario):
+    if salario <= 900:
+        return (salario * 0.10), (salario * 0.11), (0)
+        #inss, fgts, imposto de renda
+    if (salario > 900) and (salario <= 1500):
+        return (salario * 0.10), (salario * 0.11), (salario * 0.05), '5%'
+    if (salario > 1500) and (salario <= 2500):
+        return (salario * 0.10), (salario * 0.11), (salario * 0.10), '10'
+    if (salario > 2500):
+        return (salario * 0.10), (salario * 0.11), (salario * 0.20), '20%'
+
+valor_hora = float(input('Qual o valor da hora trabalhada?: '))
+horas_trabalhadas = float(input('Quantidade de horas trabalhadas?: '))
+
+salario_bruto = (valor_hora * horas_trabalhadas) 
+INSS, FGTS, IR, porcentagem_IR = descontos(salario_bruto)
+total_desconto = (INSS + IR)
+salario_liquido = (salario_bruto - total_desconto)
+
+print('Salário bruto: ', valor_hora , ' * ' , horas_trabalhadas, ' : R$', salario_bruto)
+print('(-) IR', porcentagem_IR, '                       : R$ ', IR)
+print('(-) INSS (10%)                   : R$ ', INSS)
+print('(-) FGTS (11%)                   : R$ ', FGTS)
+print('Total de descontos               : R$', total_desconto)
+print('Salário Líquido                  : R$', salario_liquido)
