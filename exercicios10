@@ -1,0 +1,18 @@
+#le os lados de um triangulo e diz se é isosceles, equilatero ou escaleno
+
+lado_1 = float(input('Insira o valor do lado 1: '))
+lado_2 = float(input('Insira o valor do lado 2: '))
+lado_3 = float(input('Insira o valor do lado 3: '))
+
+lado_4 = lado_1 + lado_2
+lado_5 = lado_3 + lado_1
+lado_6 = lado_3 + lado_2
+
+if (lado_1 < lado_6) or (lado_2 < lado_5) or (lado_3 < lado_4):
+    print('Pode formar triangulo')
+    if (lado_1 == lado_2) and (lado_3 == lado_2):
+        print('Triangulo equilátero')
+    if (lado_1 == lado_2 or lado_3 == lado_1 or lado_3 == lado_2):
+        print('Triangulo isosceles')
+    if (lado_2 != lado_3) or (lado_1 != lado_3) or (lado_1 != lado_2):
+        print('Triangulo escaleno')
