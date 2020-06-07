@@ -1,0 +1,10 @@
+#le uma data e informa se é invalida
+
+dia_mes_ano = (input('Insira a data (mm/dd/aaaa): '))
+data = dia_mes_ano.split('/')
+data = [ int(datas) for datas in data ]
+
+if (data[0] > 31 or data[0] == 0) or (data[1] > 12 or data[1] == 0) or (data[2] <= 0):
+    print('Data Inválida')
+else:
+    print('Obrigada!')
