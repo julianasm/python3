@@ -1,0 +1,25 @@
+import math
+import sys
+
+def equacao_segundo_grau(a, b, c):
+    if a == 0:
+        sys.exit('A equação não é do segundo grau')
+    if ((b**2) - (4*a*c)) < 0:
+        return 'A equação não possui raízes reais', 'X1 não existe', 'X2 não existe'
+    if ((b**2) - (4*a*c)) == 0:
+        X1 = (-b/ 2*a)
+        return 'A equação possui apenas uma raiz real', X1, 'X2 não existe'
+    if ((b**2) - (4*a*c)) > 0:
+        delta_1 = math.sqrt(b**2 - 4*a*c)
+        delta_2 = math.sqrt(b**2 - 4*a*c)
+        raiz_1 = - b - delta_1/(2*a)
+        raiz_2 = - b + delta_2/(2*a)
+        return 'As raizes encontradas são', raiz_1, raiz_2
+
+v1 = float(input('Informe o valor de a: '))
+v2 = float(input('Informe o valor de b: '))
+v3 = float(input('Informe o valor de c: '))
+
+resultado, raiz_1, raiz_2 = equacao_segundo_grau(v1, v2, v3)
+
+print('O resultado é: ', resultado, raiz_1, raiz_2)
