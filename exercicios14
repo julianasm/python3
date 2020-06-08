@@ -1,0 +1,15 @@
+#le um numero e informa: centenas, dezenas e unidades
+
+numero = list(input('Insira um valor inteiro abaixo de 1000: '))
+
+numero = [int(valores) for valores in numero]
+
+
+if len(numero) == 3:
+    print(numero, '=', numero[0],'centenas, ', numero[1], 
+          ' dezenas e ', numero[2], 'unidades.')
+elif len(numero) == 2:
+    print(numero, '=', numero[0], ' dezenas e ',
+          numero[1],' unidades.')
+elif len(numero) == 1:
+    print(numero, '=', numero[0], ' unidades.')
