@@ -1,0 +1,21 @@
+try: 
+    arquivo = open('pessoas.csv')
+
+    for registro in arquivo:
+        print('Nome: {} Idade: {}'.format(registro.strip().split(',')))
+except IndexError:
+    pass
+finally:
+    print('teste')
+    arquivo.close()
+
+if arquivo.closed:
+    print('Arquivo já foi fechado')
+#nesse caso o python vai lendo o arquivo sob demanda = 'streaming'
+#forma mais interessante de leitura de arquivo
+#strip() ira tirar os espacos em branco e as quebras de linha
+#fechar o arquivo apenas após usar
+#bloco finally sera executado independentemente se houver um erro ou nao
+#try: trcho de codigo perigoso, que pode gerar um problema
+#except: todo o codigo sera lido mesmo q haja erro
+#pass: pula o bloco em branco
