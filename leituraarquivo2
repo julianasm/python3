@@ -1,0 +1,14 @@
+#le o arquivo e fecha no bloco
+
+with open('pessoas.csv') as arquivo: 
+
+    for registro in arquivo:
+        print('Nome: {} Idade: {}'.format(*registro.strip().split(',')))
+
+if arquivo.closed:
+    print('Arquivo já foi fechado')
+#nesse caso o python vai lendo o arquivo sob demanda = 'streaming'
+#forma mais interessante de leitura de arquivo
+#strip() ira tirar os espacos em branco e as quebras de linha
+#fechar o arquivo apenas após usar
+#arquivo sera fechado pelo bloco no proprio python, bloco 'with' abre e fecha o recurso quando o bloco é finalizado 
