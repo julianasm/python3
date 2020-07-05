@@ -1,0 +1,37 @@
+class ContaCorrente:
+    def __init__(self, num_conta, nome, saldo=0):
+        self.num_conta = num_conta
+        self.nome = nome
+        self.saldo = saldo
+
+    def alterar_nome(self, novo_nome):
+        self.nome = novo_nome
+        return f'Titular da conta: {self.nome}'
+
+    def deposito(self, valor):
+        self.saldo += valor
+        return f'O depoisito de {valor} foi efetuado. Novo saldo: {self.saldo}R$'
+
+    def saque(self, valor):
+        if self.saldo < valor:
+            return f'Não é possível realizar a operação, saldo insuficiente'
+        else:
+            self.saldo -= valor
+            return f'O saque de {valor}R$ foi realizado, novo saldo: {self.saldo}R$'
+
+
+if __name__ == '__main__':
+    conta = ContaCorrente(12345, 'Henrique', 1200)
+    print(conta.saque(120))
+    print(conta.deposito(2000))
+    print(f'Titular da conta: {conta.nome}')
+    conta.alterar_nome('Paulo')
+    print(f'Titular da conta: {conta.nome}')
+    conta.alterar_nome('Henrique')
+    print(f'Titular da conta: {conta.nome}')
+    print(conta.saque(1000))
+    print(conta.saque(500))
+    print(conta.saque(1000))
+    print(conta.saque(280))
+    print(conta.saque(300))
+    print(conta.saque(10))
