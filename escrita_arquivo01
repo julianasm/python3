@@ -1,0 +1,69 @@
+# recebe dados de um aluno e grava num arquivo
+
+def validacao_matricula(mat):
+    if (not mat.isdigit()):
+        return False
+    elif (len(mat) < 5):
+        return False
+    return True
+
+
+def validacao_nome(nome):
+    if (not isinstance(nome, str)):
+        return False
+    elif (not nome.isalpha()):
+        return False
+    elif (len(nome) < 1):
+        return False
+    return True
+
+
+def validacao_ano(ano):
+    if (not ano.isdigit()):
+        return False
+    if (int(ano) < 1961 or int(ano) > 2020):
+        return False
+    return True
+
+
+def validacao_escore(escore):
+    if (not escore.isdigit()):
+        return False
+    if (int(escore) < 0 or int(escore) > 10):
+        return False
+    return True
+
+nome_arquivo = open(input('Insira o nome do arquivo: '), 'w')
+num_alunos = input('Insira a quantidade de alunos: ')
+num_alunos = int(num_alunos)
+
+for i in range(0, num_alunos):
+    matricula = input('Insira a matrícula: ')
+    while (not validacao_matricula(matricula)):
+        matricula = input('Matrícula está errada por favor insira apenas \
+números acima de 5 caracteres: ')
+    nome_arquivo.write(matricula)
+    nome_arquivo.write('\n')
+
+    nome = input('Insira o nome: ')
+    while(not validacao_nome(nome)):
+        nome = input('Nome está errado por favor insira apenas letras: ')
+    nome_arquivo.write(nome)
+    nome_arquivo.write('\n')
+
+    ano_ingresso = input('Insira o ano de ingresso: ')
+    while (not validacao_ano(ano_ingresso)):
+        ano_ingresso = input('Insira apenas números. \
+Ano não pode ser acima do ano atual: ')
+    nome_arquivo.write(ano_ingresso)
+    nome_arquivo.write('\n')
+
+    escore_atual = input('Insira o escore atual: ')
+    escore_atural = int(escore_atual)
+    while (not validacao_escore(escore_atual)):
+        escore_atual = input('Insira apenas numeros. Notas abaixo de 0 ou \
+acima de 10 serão desconsideradas: ')
+    nome_arquivo.write(escore_atual)
+    nome_arquivo.write('\n')
+
+nome_arquivo.close()
