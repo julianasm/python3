@@ -59,7 +59,6 @@ Ano não pode ser acima do ano atual: ')
     nome_arquivo.write('\n')
 
     escore_atual = input('Insira o escore atual: ')
-    escore_atural = int(escore_atual)
     while (not validacao_escore(escore_atual)):
         escore_atual = input('Insira apenas numeros. Notas abaixo de 0 ou \
 acima de 10 serão desconsideradas: ')
