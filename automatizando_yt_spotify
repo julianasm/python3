@@ -1,0 +1,152 @@
+# primeiro passo: Login no youtube
+# segundo passo: pegar os videos marcados como 'gostei'
+# terceiro passo: criar uma novo playlist
+# quarto passo: procurar musica
+# quinto passo: adicionar a musica à nova playlist do spotify
+import json
+import requests
+import os 
+
+from secrets import spotify_user_id
+import google_auth_oauthlib.flow
+import googleapiclient.discovery
+import googleapiclient.errors
+import youtube_dl
+
+
+class CreatePlaylist:
+    def __init__(self):
+        self.user_id = spotify_user_id
+        self.spotify_token = spotify_token
+        self.youtube_client = self.get_youtube_client()
+        self.all_song_info = {}
+    
+    # primeiro passo: Login no youtube
+    def get_youtube_client(self):
+        #copied from youtubedata api
+        # Disable OAuthlib's HTTPS verification when running locally.
+        # *DO NOT* leave this option enabled in production.
+        os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
+
+        api_service_name = "youtube"
+        api_version = "v3"
+        client_secrets_file = "client_secret.json"
+
+        # Get credentials and create an API client
+        scopes = ["https://www.googleapis.com/auth/youtube.readonly"]
+        flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+        client_secrets_file, scopes)
+        credentials = flow.run_console()
+
+        # from the youtube DATA API
+        youtube_client = googleapiclient.discovery.build(api_service_name, api_version, credentials=credentials)
+
+        return youtube_client
+
+    
+    # segundo passo: pegar os videos marcados como 'gostei' e criar um dicionario com informações importantes sobre a musica
+    def get_liked_videos(self):
+        request = self.youtube_client.videos().list(
+            part="snippet, contentDetails,statistics",
+            myRating="like"
+        )
+
+        response = request.execute()
+
+        #collect each video and get important information
+        for item in response["items"]:
+            video_title = item["snippet"]["title"]
+            youtube_url = "https://youtube.com/watch?v={}".format(item["id"])
+        
+        # use youtube_dl to collect the song name & artist name
+        video = youtube_dl.YoutubeDL({}).extract_info(youtube_url, download=False)
+        song_name = video["track"]
+        artist = video["artist"]
+
+        # save all important info
+        self.all_song_info[video_title]={
+            "youtube_url": youtube_url,
+            "song_name": song_name,
+            "artist": artist,
+
+            #add the uri, easy to get song to put into playlist
+            "spotify_uri":self.get_spotify_uri(song_name, artist)
+
+        }
+
+    # terceiro passo: criar uma novo playlist
+    def create_playlist(self):
+        request_body = json.dumps({
+            "name":"Youtube Liked Videos",
+            "description":"All liked Youtube Videos", 
+            "public":True
+        })
+    
+        query = "https://api.spotify.com/v1/users/{}/playlists".format(self.user_id)
+        response = requests.post(
+            query,
+            data=request_body,
+            headers={
+                "Content-Type":"application/json",
+                "Authorization":"Bearer {}".format(spotify_token)
+            }
+        )
+        response_json = response.json()
+
+        # playlist id
+        return response_json["id"]
+
+    # quarto passo: procurar musica
+    def get_spotify_uri(self, song_name, artist):
+
+        query = "https://api.spotify.com/v1/search?query=track%3A{}+artist3%A{}&type=track&offset0&limit=20".format(
+            song_name,
+            artist
+        )
+        response = requests.get(
+            query,
+            headers={
+                "Content-Type":"application/json",
+                "Authorization":"Bearer {}".format(self.spotify_token)
+            }
+        )
+        response_json = response.json()
+        songs = response_json["tracks"]["items"]
+        
+        # only use the first song
+
+        uri = songs[0]["uri"]
+
+        return uri 
+
+    # quinto passo: adicionar a musica à nova playlist do spotify
+    def add_song_to_playlist(self):
+        # criar dicionario com as musicas
+        self.get_liked_videos()
+        #coletar todos os uri's 
+        uris = []
+        for song, info in self.all_song_info.items():
+            uris.append(info["spotify_uri"])
+
+        # criar nova playlist
+        playlist_id = self.create_playlist()
+
+        # adicionar todas as musicas a nova playlist playlists
+        request_data = json.dumps(uris)
+
+        query = "https://api.spotify.com/v1/playlists/{}/tracks".format(playlist_id)
+
+        respons = requests.post(
+            query,
+            data=request_data,
+            headers={
+                "Content-Type":"application/json",
+                "Authorization":"Bearer {}".format(self.spotify_token)
+            }
+        )
+        response_json = response.json
+        return response_json 
+
+
+
+    
